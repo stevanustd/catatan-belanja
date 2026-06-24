@@ -19,7 +19,6 @@ body {
 
 .app {
   width: 70%;
-  height: 100vh;
   margin: auto;
   display: grid;
   grid-template-rows: auto auto 1fr auto;
@@ -161,6 +160,6 @@ button {
 }
 @media (max-width: 576px) {
   html {
-    font-size: 40%;
+    font-size: 35%;
   }
 }
