@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./Header.jsx";
 import Form from "./Form.jsx";
 import GroceryList from "./GroceryList.jsx";
@@ -26,7 +26,14 @@ const groceryItems = [
 ];
 
 export default function App() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(() => {
+    const saved = localStorage.getItem("catatan-belanja");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("catatan-belanja", JSON.stringify(items));
+  }, [items]);
 
   function handleAddItem(item) {
     setItems([...items, item]);
